@@ -24,44 +24,44 @@ body {
 
 <script>
 
+var books = {
+  b0001: {
+    title: "Guns For General Washington",
+    author: "Seymour Reit",
+    link: "http://www.goodreads.com/book/show/50693.Guns_for_General_Washington",
+    currentlyReading: true
+  },
+  b0002: {
+    title: "Javascript For Kids",
+    currentlyReading: true
+  }
+}
 
 var people = {
   matthew: {
-    age: 36
+
   },
   chanel: {
-    age: 35
+
   },
   jonathan: {
-    age: 11
+
   },
   amaya: {
-    age: 9
+
   },
   noah: {
-    age: 7,
-    booksRead: {
-      b0001: {
-        title: "Guns For General Washington",
-        author: "Seymour Reit",
-        link: "http://www.goodreads.com/book/show/50693.Guns_for_General_Washington",
-        currentlyReading: true
-      },
-      b0002: {
-        title: "Javascript For Kids",
-        currentlyReading: true
-      }
-    }
+
   },
   nathanael: {
-    age: 5
+
   }
 };
 
 var app = new Vue({
   el: '#app',
   data: {
-    message: 'Noah is reading ' + people.noah.booksRead.b0001.title
+    message: 'Noah is reading ' + books.b0001.title
   }
 })
 

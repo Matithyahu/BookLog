@@ -1,0 +1,17 @@
+var books = {
+  b0001: {
+    title: "Guns For General Washington",
+    author: "Seymour Reit",
+    link: "http://www.goodreads.com/book/show/50693.Guns_for_General_Washington"
+  },
+  b0002: {
+    title: "Javascript For Kids"
+  },
+  b0003: {
+    title: "Genius",
+    author: "James Gleik"
+  },
+  b0004: {
+    title: "The Whipping Boy"
+  }
+}

@@ -51,17 +51,31 @@ var people = {
 
   },
   noah: {
-
+    name: "Noah",
+    nowReading: [books.b0001]
   },
   nathanael: {
 
   }
 };
 
+// This function will return what each person is reading now
+var nowReading = function() {
+  if (people.noah.nowReading > 0) {
+    return people.noah.nowReading
+  } else {
+    return "Not reading anything right now"
+  }
+
+
+}
+
+
+
 var app = new Vue({
   el: '#app',
   data: {
-    message: 'Noah is reading ' + books.b0001.title
+    message: nowReading()
   }
 })
 

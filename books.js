@@ -20,5 +20,10 @@ var books = [
   {
     id: "b0004",
     title: "The Whipping Boy"
+  },
+  {
+    id: "b0005",
+    title: "How To Manage Your Money When You Don't Have Any",
+    author: ""
   }
 ]

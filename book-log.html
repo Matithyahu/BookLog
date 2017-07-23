@@ -1,82 +1,88 @@
 <html>
 
 <head>
-<title>family books</title>
-<script src="https://unpkg.com/vue"></script>
-<script src="books.js"></script>
-<style>
-
-body {
-  background: rgb(200, 230, 250);
-}
-
-</style>
+  <title>family books</title>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="books.js"></script>
+  <style>
+    body {
+      background: rgb(200, 230, 250);
+    }
+  </style>
 
 </head>
+
 <body>
 
-<h1>family books</h1>
+  <h1>family books</h1>
 
-<div id="nowReading">
-  <p>Jonathan is reading: {{ jonathan }}</p>
-  <p>Amaya is reading: {{ amaya }}</p>
-  <p>Noah is reading: {{ noah }}</p>
-  <p>Nathanael is reading: {{ nathanael }}</p>
-</div>
+  <div id="nowReading">
+    <p>Jonathan is reading: {{ jonathan }}</p>
+    <p>Amaya is reading: {{ amaya }}</p>
+    <p>Noah is reading: {{ noah }}</p>
+    <p>Nathanael is reading: {{ nathanael }}</p>
+    <p>Chanel is reading: {{ chanel }}</p>
+  </div>
 
 </body>
 
 <script>
+  var people = {
+    matthew: {
+      name: "Matthew",
+      nowReading: []
+    },
+    chanel: {
+      name: "Chanel",
+      nowReading: [books[5]]
+    },
+    jonathan: {
+      name: "Jonathan",
+      nowReading: [books[3]]
+    },
+    amaya: {
+      name: "Amaya",
+      nowReading: [books[4]]
+    },
+    noah: {
+      name: "Noah",
+      nowReading: [books[2], books[4], books[1]]
+    },
+    nathanael: {
+      name: "Nathanael",
+      nowReading: []
+    }
+  };
 
-var people = {
-  matthew: {
-    name: "Matthew"
-  },
-  chanel: {
-
-  },
-  jonathan: {
-    name: "Jonathan",
-    nowReading: [books[3]]
-  },
-  amaya: {
-    name: "Amaya",
-    nowReading: [books[4]]
-  },
-  noah: {
-    name: "Noah",
-    nowReading: [books[2], books[4]]
-  },
-  nathanael: {
-    name: "Nathanael",
-    nowReading: []
-  }
-};
-
-// This function will return what each person is reading now
-var nowReading = function(name) {
-  if (people[name].nowReading.length > 0) {
-      var books = [];
-      for (var i = 0; i < people[name].nowReading.length; i++) {
-        books.push(people[name].nowReading[i].title)
+  // This function will return what each person is reading now
+  var handlers = {
+    nowReading: function(name) {
+      if (people[name].nowReading.length > 0) {
+        var books = [];
+        var pushBooks = function(book) {
+          books.push(book.title);
+        }
+        people[name].nowReading.forEach(pushBooks);
+        return books;
+      } else {
+        return "Not reading anything right now"
       }
-      return books;
-  } else {
-    return "Not reading anything right now"
+    }
   }
-}
 
 
-var app = new Vue({
-  el: '#nowReading',
-  data: {
-    jonathan: nowReading("jonathan"),
-    amaya: nowReading("amaya"),
-    noah: nowReading("noah"),
-    nathanael: nowReading("nathanael"),
-    test: "testing"
-  }
-})
-
+  var app = new Vue({
+    el: '#nowReading',
+    data: {
+      jonathan: handlers.nowReading("jonathan"),
+      amaya: handlers.nowReading("amaya"),
+      noah: handlers.nowReading("noah"),
+      nathanael: handlers.nowReading("nathanael"),
+      chanel: handlers.nowReading("chanel"),
+      matthew: handlers.nowReading("matthew"),
+      test: "testing"
+    }
+  })
 </script>
+
 </html>

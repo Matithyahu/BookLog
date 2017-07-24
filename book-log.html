@@ -1,6 +1,8 @@
+<!DOCTYPE html>
 <html>
 
 <head>
+  <meta charset="utf-8">
   <title>family books</title>
   <script src="https://unpkg.com/vue"></script>
   <script src="books.js"></script>
@@ -58,12 +60,11 @@
   var handlers = {
     nowReading: function(name) {
       if (people[name].nowReading.length > 0) {
-        var books = [];
-        var pushBooks = function(book) {
-          books.push(book.title);
-        }
-        people[name].nowReading.forEach(pushBooks);
-        return books;
+        var readingThese = '';
+        people[name].nowReading.forEach(function(book){
+          readingThese = readingThese + book.title + ', ';
+        });
+        return readingThese;
       } else {
         return "Not reading anything right now"
       }

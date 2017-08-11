@@ -13,3 +13,15 @@ family will actually use.
       * Notes, or report, on books they've read
    * To Be Read list, what books they want to read
 * A list of books, which can be added to by users
+
+## Tech used
+
+This is a learning project, so I want to use the things I'd like to learn.
+
+I've realized that I need to understand databases better and know how to
+use them. So I'll be using MongoDB. I also need to use node.js on the
+backend. I'll be going through a course on all this on Udemy.
+
+* node.js
+* MongoDB
+* Vue.js
